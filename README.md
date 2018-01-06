@@ -8,7 +8,7 @@ This package provides methods for simulating the evolution of pathogen traits. T
 Using the package
 =================
 
-For using the package, read the package [User Guide](https://venelin.github.io/toyepidemic/articles/UserGuide.html).
+For using the package, read the package [Get started](https://venelin.github.io/toyepidemic/articles/UserGuide.html) guide.
 
 Installing the package
 ======================
