@@ -258,4 +258,7 @@ Apart from base R functionality, the toyepidemic package uses a number of 3rd pa
 * For reporting: `r printPackages(data)`;
 * For testing: `r printPackages(testing)`.
 
+# Further reading
+For a further introduction to the toy epidemiological model, we refer the reader to [@Mitov:2016kd].
+
 # References
