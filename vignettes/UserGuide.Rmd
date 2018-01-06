@@ -247,7 +247,7 @@ printPackages <- function(packs) {
 }
 
 # Write bib information (this line is executed manually and the bib-file is edited manually after that)
-knitr::write_bib(packagesUsed, file = "./REFERENCES-R.bib")
+# knitr::write_bib(packagesUsed, file = "./REFERENCES-R.bib")
 ```
 
 
