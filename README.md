@@ -32,4 +32,4 @@ Check-out the package [web-page](https://venelin.github.io/toyepidemic/index.htm
 References
 ==========
 
-Mitov, Venelin, and Tanja Stadler. 2016. “The heritability of pathogen traits - definitions and estimators.” *Unpublished Data* https://www.biorxiv.org/content/early/2016/06/12/058503, last accessed June 12, 2016 (June).
+Mitov, Venelin, and Tanja Stadler. 2016. “The heritability of pathogen traits - definitions and estimators.” *Unpublished Data* https://www.biorxiv.org/content/early/2016/06/12/058503.
