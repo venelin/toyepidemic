@@ -22,7 +22,7 @@ devtools::install_github(repo="venelin/toyepidemic")
 Package source-code
 ===================
 
-The package source-code is available on \[github\]{<https://github.com/venelin/toyepidemic.git>}.
+The package source-code is available on [github](https://github.com/venelin/toyepidemic.git).
 
 Package web-page
 ================
