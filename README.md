@@ -8,7 +8,7 @@ This package provides methods for simulating the evolution of pathogen traits. T
 Using the package
 =================
 
-For using the package, read the package [User Guide](./articles/UserGuide.Rmd).
+For using the package, read the package [User Guide](https://venelin.github.io/toyepidemic/articles/UserGuide.html).
 
 Installing the package
 ======================
@@ -18,6 +18,16 @@ You can install the most recent version of the package from github:
 ``` r
 devtools::install_github(repo="venelin/toyepidemic")
 ```
+
+Package source-code
+===================
+
+The package source-code is available on \[github\]{<https://github.com/venelin/toyepidemic.git>}.
+
+Package web-page
+================
+
+Check-out the package [web-page](https://venelin.github.io/toyepidemic/index.html) for the latest news and further documentation.
 
 References
 ==========
