@@ -1,18 +1,24 @@
 ---
 title: "Simulating epidemics with the toyepidemic R-package"
 author: "Venelin Mitov"
-date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Simulating epidemics with the toyepidemic R-package}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+bibliography: REFERENCES.bib
 ---
 
 ```{r setup, include=FALSE}
-# make results reproducible (using same seed as for the discrete generation case)
+# make results reproducible
 set.seed(5)
+
+library(toyepidemic)
+
+# set this to FALSE to disable cache and run all MCMC-fits.
+useCachedResults <- file.exists("epid1.RData") & TRUE
 ```
+
 
 
 # Designing the epidemic
@@ -20,8 +26,6 @@ set.seed(5)
 ## Define the pathogen genotypes
 We set the numbers of different alleles for each quantitative trait locus (QTL) in the pathogen genotype. These are specified in the form of a integer vector with elements bigger or equal to 2. The length of this vector corresponds to the number of QTLs.
 ```{r}
-library(toyepidemic)
-
 # numbers of alleles for each quantitative trait locus
 numsAllelesAtSites <- c(3, 2)
 
@@ -172,7 +176,7 @@ expandTimeAfterMaxNTips <- 0
 
 # Running the simulation
 To run the simulation we use the function simulateEpidemic with the parameters specified as above:
-```{r, results="hide"}
+```{r, results="hide", echo=TRUE, eval=!useCachedResults}
 epidemic <- simulateEpidemic(
   Ninit=N, nu=nu, mu=mu, pe=pe, sde=sde, pg.init=pg.init, GEValues=GEVs,
   rateContact=1/6, rateInfect=rateInfect, rateDie=rateDie,
@@ -183,6 +187,11 @@ epidemic <- simulateEpidemic(
   timeStep=timeStep, maxTime=maxTime, maxNTips=maxNTips,
   expandTimeAfterMaxNTips=expandTimeAfterMaxNTips,
   process="select/select")
+```
+
+```{r, echo=FALSE, eval=useCachedResults}
+# loads the epidemic object
+load("epid1.RData")
 ```
 
 # Analysing the epidemic
@@ -213,6 +222,40 @@ drc1 <- extractDRCouples(epidemic)
 
 
 ## Saving the epidemic for future analysis
-```{r}
+```{r, echo=TRUE, eval=useCachedResults}
 save(epidemic, file="epid1.RData")
 ```
+
+# Packages used
+```{r create-references, echo=FALSE, include=FALSE, eval=TRUE}
+fastExecution <- c("Rcpp")
+treeProcessing <- c("ape")
+data <- c("data.table")
+testing <- c("testthat")
+ 
+packagesUsed <- c(fastExecution, treeProcessing, data, testing)
+
+printPackages <- function(packs) {
+  res <- ""
+  for(i in 1:length(packs)) {
+    res <- paste0(res, paste0(packs[i], ' v', packageVersion(packs[i]), ' [@R-', packs[i], ']'))
+    if(i < length(packs)) {
+      res <- paste0(res, ', ')
+    }
+  }
+  res
+}
+
+# Write bib information (this line is executed manually and the bib-file is edited manually after that)
+knitr::write_bib(packagesUsed, file = "./REFERENCES-R.bib")
+```
+
+
+Apart from base R functionality, the toyepidemic package uses a number of 3rd party R-packages:
+
+* For fast execution: `r printPackages(fastExecution)`;
+* For tree processing: `r printPackages(treeProcessing)`;
+* For reporting: `r printPackages(data)`;
+* For testing: `r printPackages(testing)`.
+
+# References

@@ -2,7 +2,7 @@ Type: Package
 Package: toyepidemic
 Title: Simulating epidemics with within-host strain mutation and between-host SIR dynamics
 Version: 0.1.0
-Authors@R: person("Venelin", "Mitov", email = "vmitov@gmail.com", role = c("aut", "cre"))
+Authors@R: person("Venelin", "Mitov", email = "vmitov@gmail.com", role = c("aut", "cre", "cph"))
 Description: This package provides methods for simulating the evolution of 
   pathogen traits. The simulation method assumes
   a classical additive model for a trait in which the trait-value is formed as a 
@@ -18,8 +18,7 @@ Description: This package provides methods for simulating the evolution of
   rates between infected and susceptible hosts can be specified as constants or
   as functions of the pathogen trait. The resulting epidemic is represented as
   a data.table and a rooted phylogenetic tree (a phylo object). The data 
-  contains the history of within- and between- host events. The package provides
-  plotting functions to visualize the epidemic over time.
+  contains the history of within- and between- host events. 
 Depends:
     R (>= 3.3.3),
     Rcpp
@@ -27,6 +26,8 @@ LinkingTo: Rcpp
 Imports:
     ape,
     data.table
+Suggests:
+    ape
 License: GPL (>=3.0)
 Encoding: UTF-8
 LazyData: true

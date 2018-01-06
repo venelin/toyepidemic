@@ -1,0 +1,19 @@
+citHeader("To cite toyepidemic use:")
+
+citEntry(entry = "Article",
+  title        = "The heritability of pathogen traits - definitions and estimators",
+  author       = personList(as.person("Venelin Mitov"),
+                   as.person("Tanja Stadler")),
+  journal      = "BiorXiv",
+  year         = "2016",
+  volume       = "{https://www.biorxiv.org/content/early/2016/06/12/058503, last accessed June 12, 2016}",
+  number       = "",
+  pages        = "",
+  url          = "https://www.biorxiv.org/content/early/2016/06/12/058503",
+
+  textVersion  =
+  paste("Venelin Mitov, Tanja Stadler (2016).",
+        "The heritability of pathogen traits - definitions and estimators",
+        "BiorXiv",
+        "URL https://www.biorxiv.org/content/early/2016/06/12/058503")
+)

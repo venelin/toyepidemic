@@ -1,0 +1,6 @@
+urls:
+  reference: http://venelin.github.io/toyepidemic/reference
+  article: http://venelin.github.io/toyepidemic/articles
+articles:
+  UserGuide: UserGuide.html
+
