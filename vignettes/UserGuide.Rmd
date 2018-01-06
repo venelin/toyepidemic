@@ -146,7 +146,7 @@ rateMutate <- function(GEValues, es, envs, genes) {
 selectWithinHost <- TRUE
 ```
 
-### Sampling rate for infected host
+### Sampling rate for an infected host
 The event of sampling represents diagnosis and immediate treatment and lifelong immunity and un-infectiousness for the host. For this example, we define a constant sampling rate, independent of the phenotype. 
 ```{r}
 rateSample <- 1/(4*12)
@@ -157,16 +157,16 @@ rateSample <- 1/(4*12)
 # all events are sampled with this time-step. This means that only one event can happen for an infected host within every next interval of 0.05 (arbitrary time units).
 timeStep <- 0.05
 
-# maximum time before starting graceful fadeout of the epidemic
-maxTime <- 120
+# maximum time before starting graceful fadeout of the epidemic (stop the
+# transmission events and wait until no more infected hosts live in the population)
+maxTime <- 200
 
-# continue the epidemic outbreak until reaching ...
-maxNTips <- 200
+# continue the epidemic outbreak until reaching maxNTips diagnosed hosts
+maxNTips <- 1000
 
-
-# time to continue the simulation of transmission after reaching maxNTips (this was introduced
-# in order to study post-outbreak dynamics, i.e. epidemic waves after exhaustion of the
-# susceptible pool)
+# time to continue the simulation of transmission after reaching maxNTips 
+# (this was introduced in order to study post-outbreak dynamics, i.e. epidemic
+# waves after exhaustion of the susceptible pool)
 expandTimeAfterMaxNTips <- 0
 ```
 
@@ -186,6 +186,8 @@ epidemic <- simulateEpidemic(
 ```
 
 # Analysing the epidemic
+Here we glimpse over some of the functions used in analyzing the simulated epidemic. A more elaborate analysis is provided in the vignette for the package `patherit`. 
+
 ## Extracting the transmission tree connecting sampled host
 ```{r}
 tree <- extractTree(epidemic)
@@ -207,4 +209,10 @@ hist(pop[, z])
 ## Extract donor-recipient couples
 ```{r}
 drc1 <- extractDRCouples(epidemic)
+```
+
+
+## Saving the epidemic for future analysis
+```{r}
+save(epidemic, file="epid1.RData")
 ```
